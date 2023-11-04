@@ -1,0 +1,8 @@
+apache-airflow
+pandas
+mysql-connector-python
+google-auth
+google-oauth2-tool
+google-cloud-bigquery
+apache-airflow-providers-mysql
+'apache-airflow[google]'
