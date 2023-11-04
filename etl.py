@@ -40,7 +40,7 @@ upload_mysql_to_gcs = MySQLToGCSOperator(
         bucket=BUCKET_NAME, 
         gcp_conn_id  = gcp_conn_id,
         filename=FILENAME, 
-        export_format="csv",
+        export_format="json",
         # schema_filename=schema,
         dag=dag
     )
@@ -50,7 +50,7 @@ gcs_to_gbq = GCSToBigQueryOperator(
         bucket=BUCKET_NAME, 
         gcp_conn_id  = gcp_conn_id,
         source_objects=[FILENAME], 
-        source_format="csv",
+        source_format="NEWLINE_DELIMITED_JSON",
         create_disposition="CREATE_IF_NEEDED",
         write_disposition="WRITE_TRUNCATE",
         # schema_object=schema,
